@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História ❤️</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose-gold: #b76e79;
+            --deep-burgundy: #582630;
+            --soft-cream: #fff5f0;
+            --warm-white: #fefefe;
+            --shadow-romantic: rgba(88, 38, 48, 0.15);
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: var(--soft-cream);
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ===== FOTO ===== */
+        .photo-section {
+            flex: 1;
+            background: linear-gradient(135deg, #d4a5a5 0%, #b76e79 50%, #8b4a5a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .photo-container {
+            width: 70%;
+            max-width: 500px;
+        }
+
+        .photo-frame {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--warm-white);
+            box-shadow:
+                0 20px 60px rgba(88, 38, 48, 0.3),
+                0 0 0 15px rgba(255, 255, 255, 0.1),
+                0 0 0 30px rgba(255, 255, 255, 0.05);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        /* ===== TEXTO ===== */
+        .text-section {
+            flex: 1;
+            background: var(--warm-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+        }
+
+        .content {
+            max-width: 600px;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--deep-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--rose-gold);
+            font-style: italic;
+            margin-bottom: 3rem;
+        }
+
+        .paragraph {
+            font-size: 1.25rem;
+            line-height: 2;
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--rose-gold);
+            margin-top: 3rem;
+            text-align: right;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline-section {
+            width: 100%;
+            background: linear-gradient(135deg, var(--soft-cream), var(--warm-white));
+            padding: 5rem 4rem;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--deep-burgundy);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--rose-gold), var(--deep-burgundy), var(--rose-gold));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px var(--shadow-romantic);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+            margin-left: 5%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 5%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--rose-gold), var(--deep-burgundy));
+            border-radius: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 0 0 8px var(--warm-white);
+        }
+
+        .timeline-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--rose-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-event {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--deep-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 968px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .photo-section {
+                min-height: 50vh;
+            }
+
+            .text-section {
+                padding: 3rem 2rem;
+            }
+
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .timeline-line {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                padding-left: 70px;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="photo-section">
+        <div class="photo-container">
+            <div class="photo-frame">
+                <img src="foto.png" alt="Nossa foto">
+            </div>
+        </div>
+    </div>
+
+    <div class="text-section">
+        <div class="content">
+            <h1 class="title">Nossa História</h1>
+            <p class="subtitle">Um amor que ilumina meus dias</p>
+
+            <p class="paragraph">
+                Desde o primeiro momento em que te conheci, soube que você era especial.
+                Cada sorriso seu transforma meu dia e cada palavra sua aquece meu coração.
+            </p>
+
+            <p class="paragraph">
+                Nossos momentos juntos são tesouros que guardo com carinho.
+                Cada risada, cada conversa, cada abraço constrói nossa história.
+            </p>
+
+            <p class="paragraph">
+                Com você aprendi o verdadeiro significado de amor, companheirismo e cumplicidade.
+            </p>
+
+            <div class="signature">Com todo meu amor ♥</div>
+        </div>
+    </div>
+</div>
+
+<div class="timeline-section">
+    <h2 class="timeline-title">Nossa Linha do Tempo</h2>
+
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot">✨</div>
+            <div class="timeline-content">
+                <div class="timeline-date">8 de novembro, 2022</div>
+                <div class="timeline-event">Quando nos conhecemos</div>
+                <p class="timeline-description">
+                    Quem diria que um dia comum no Instagram ia mudar tudo. uma mensagem, uma conversa que parecia não ter hora pra acabar… e ali começou algo que hoje é tão grande. Desde aquele dia, minha vida ganhou mais cor, mais sorriso e mais sentido. Te conhecer foi uma das melhores coincidências que o destino já me deu. 🤍
+
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot">💋</div>
+            <div class="timeline-content">
+                <div class="timeline-date">19 de janeiro, 2025</div>
+                <div class="timeline-event">Nosso primeiro beijo</div>
+                <p class="timeline-description">
+                    O primeiro beijo não foi exagerado, não foi filme, não foi ensaiado. Foi um selinho simples, tímido… mas cheio de sentimento. Ali eu senti que não era só um beijo, era a confirmação de que o que a gente tinha era real. Pequeno no gesto, gigante no significado. 
+
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot">❤️</div>
+            <div class="timeline-content">
+                <div class="timeline-date">15 de fevereiro, 2025</div>
+                <div class="timeline-event">Começamos a namorar</div>
+                <p class="timeline-description">
+                    Não teve pedido, não teve discurso ensaiado. Teve sentimento crescendo, conversa virando rotina, cuidado virando carinho. Em algum momento, sem a gente perceber, já era namoro. E foi assim, natural e verdadeiro, que você virou parte da minha vida, e eu nunca mais quis diferente. 🤍
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
